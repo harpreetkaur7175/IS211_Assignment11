@@ -1,0 +1,63 @@
+table,
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+    background-color: rgb(149, 250, 183);
+    padding: 30px;
+}
+
+form {
+    margin-top: 40px;
+}
+
+h1 {
+    background-color: aqua;
+    text-align: center;
+}
+
+button,
+select,
+.btn {
+    cursor: pointer;
+}
+
+.awesome-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    background: rgb(65, 136, 228);
+}
+
+a,
+a:link,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    border: 1px #000;
+}
+
+.btn {
+    border: outset 1px rgb(65, 136, 228);
+    ;
+    padding: 2px;
+    background: rgb(252, 104, 104);
+    text-align: center;
+}
+
+.clear-save-buttons {
+    display: flex;
+}
+
+.clear-button {
+    padding-right: 30px;
+}
