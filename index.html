@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}?bust={{cache_bust}}">
+</head>
+
+<body>
+    <h1>My Super Cool Todo List</h1>
+    <div>
+        <form action="{{ url_for('submit') }}" method="POST">
+            <div class="awesome-form">
+                <div>
+                    <span>Task:</span>
+                    <input type="text" name="task" required>
+                </div>
+                <div>
+                    <span>Email:</span>
+                    <input type="text" name="email" required>
+                </div>
+                <div>
+                    <span>Priority:</span>
+                    <select name="priority" required>
+                        <option value="">None</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+            </div>
+            <button class='submit-button'>Add To Do Item</button>
+        </form>
+    </div>
+    {% if todo_list %}
+    <div>
+        <h2>Todos:</h2>
+    </div>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Email</th>
+            <th>Priority</th>
+            <th>Delete Todo</th>
+        </tr>
+        {% for todo in todo_list %}
+        <tr>
+            <td>{{ todo.task }}</td>
+            <td>{{ todo.email }}</td>
+            <td>{{ todo.priority }}</td>
+            <td class="btn"> <a href="delete/{{todo.uuid}}" style="display:block;">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="clear-save-buttons">
+        <form action="{{ url_for('clear')}}" method="POST" class="clear-button">
+            <button class='submit-button' type="submit">Clear</button>
+        </form>
+        <form action="{{ url_for('save')}}" method="POST">
+            <button class='submit-button' type="submit">Save</button>
+        </form>
+    </div>
+    {% endif %}
+</body>
+
+</html>
