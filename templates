@@ -1,0 +1,16 @@
+My Super Cool Todo List
+
+Task:  
+Email:  
+Priority:  
+Add To Do Item
+{% if todo_list %}
+Todos:
+
+{% for todo in todo_list %} {% endfor %}
+Task	Email	Priority	Delete Todo
+{{ todo.task }}	{{ todo.email }}	{{ todo.priority }}	
+Delete
+Clear
+Save
+{% endif %}
